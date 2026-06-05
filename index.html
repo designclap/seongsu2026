@@ -26,10 +26,11 @@
 
   /* TOP BAR */
   .topbar{position:sticky;top:0;z-index:30;background:rgba(247,244,238,.93);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-  .topbar .inner{max-width:980px;margin:0 auto;padding:11px 24px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-  .mode-pill{font-weight:800;font-size:14px;padding:6px 13px;border-radius:999px;background:var(--wait-bg);color:var(--ink-soft)}
-  .mode-pill.edit{background:var(--go-bg);color:var(--go)}
+  .topbar .inner{max-width:980px;margin:0 auto;padding:9px 24px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;min-height:44px}
+  .mode-pill{font-weight:800;font-size:14px;padding:6px 13px;border-radius:999px;background:var(--go-bg);color:var(--go)}
   .tb-spacer{flex:1}
+  .gear{background:none;border:none;color:var(--ink-faint);font-size:19px;line-height:1;cursor:pointer;opacity:.4;padding:5px 7px;border-radius:8px;transition:opacity .15s,background .15s}
+  .gear:hover{opacity:.9;background:var(--paper-2)}
   .tb-btn{font:inherit;font-size:14px;font-weight:700;padding:8px 15px;border-radius:11px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;transition:border-color .15s,background .15s}
   .tb-btn:hover{border-color:#c9c0ae}
   .tb-btn.go{background:var(--go);border-color:var(--go);color:#fff}
@@ -103,6 +104,7 @@
   .phase.done .dot{border-color:var(--go);background:var(--go)} .phase.wip .dot{border-color:var(--wip);background:var(--wip)}
   .phase-head{display:flex;align-items:center;gap:13px;flex-wrap:wrap;cursor:pointer;user-select:none}
   .phase-head h3{font-family:var(--display);font-size:22px;font-weight:800;letter-spacing:-.01em}
+  .phase-head h3 .stepn{color:var(--wip);margin-right:4px}
   .phase-goal{font-size:16.5px;color:var(--ink-soft);margin:9px 0 4px}
   .chev{margin-left:auto;color:var(--ink-faint);font-size:15px;transition:transform .3s}
   .phase.open .chev{transform:rotate(90deg)}
@@ -121,12 +123,10 @@
   .chk input:disabled{cursor:default;opacity:.95}
   .src{color:var(--ink-soft);font-size:15px}
   .pro{display:inline-block;background:var(--wip-bg);color:var(--wip);font-weight:700;font-size:13px;padding:3px 10px;border-radius:999px;white-space:nowrap}
-  .on{font-weight:700;font-size:14.5px}
-  .on.y{color:var(--go)} .on.p{color:var(--wip)} .on.n{color:var(--warn)}
   .st{font-size:14px;font-weight:700}
   .st.go{color:var(--go)} .st.wip{color:var(--wip)} .st.wait{color:var(--wait)}
 
-  /* VAULT (downloads) */
+  /* VAULT */
   .vault{background:#fff;border:1px solid var(--line-soft);border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
   .vault-row{display:flex;align-items:center;gap:14px;padding:15px 18px;border-top:1px solid var(--line-soft)}
   .vault-row:first-child{border-top:none}
@@ -141,13 +141,12 @@
   .heirs{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
   .heir{background:#fff;border:1px solid var(--line-soft);border-radius:16px;padding:20px;box-shadow:var(--shadow)}
   .heir .rel{font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);font-weight:700}
-  .heir .nm{font-family:var(--display);font-size:22px;font-weight:800;margin:6px 0 11px;letter-spacing:.02em}
+  .heir .nm{font-family:var(--display);font-size:21px;font-weight:800;margin:6px 0 11px;letter-spacing:-.01em}
   .heir ul{list-style:none;font-size:16px;color:var(--ink-soft)}
   .heir li{padding-left:16px;position:relative;margin-bottom:4px}
   .heir li::before{content:'·';position:absolute;left:3px;color:var(--ink-faint)} .heir li b{color:var(--ink)}
   .special{border-color:#d9c7a6;background:linear-gradient(180deg,#fff,#fbf6ec)}
   .note{background:var(--warn-bg);border:1px solid #e3c4ba;border-radius:14px;padding:18px 20px;font-size:16.5px;color:#6e3324;margin-top:16px;line-height:1.65} .note b{color:var(--warn)}
-  .note code{background:#f7e7e0;padding:1px 7px;border-radius:6px;font-size:14.5px}
 
   /* LINKS */
   .links{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:13px}
@@ -168,19 +167,18 @@
   @media (max-width:640px){
     body{font-size:17px}
     .wrap{padding:0 16px}
-    .topbar .inner{padding:9px 16px;gap:8px}
+    .topbar .inner{padding:8px 16px;gap:8px}
     table.docs{border:none;background:transparent;border-radius:0}
     table.docs thead{display:none}
     table.docs,table.docs tbody{display:block;width:100%}
     table.docs tr{display:block;width:100%;background:#fff;border:1px solid var(--line-soft);border-radius:13px;padding:15px 16px;margin-bottom:11px;box-shadow:var(--shadow)}
     table.docs td{display:block;border:none;padding:0}
     table.docs td.doc{font-size:16.5px;margin-bottom:10px}
-    table.docs td:nth-child(2),table.docs td:nth-child(3),table.docs td:nth-child(4),table.docs td:nth-child(5){display:inline-block;margin:0 14px 5px 0;font-size:13.5px;font-weight:600;line-height:1.4}
+    table.docs td:nth-child(2),table.docs td:nth-child(3),table.docs td:nth-child(4){display:inline-block;margin:0 14px 5px 0;font-size:13.5px;font-weight:600;line-height:1.4}
     table.docs td:nth-child(2)::before{content:"발급 · ";color:var(--ink-faint);font-weight:500}
-    table.docs td:nth-child(3):not(:empty)::before{content:"비고 · ";color:var(--ink-faint);font-weight:500}
-    table.docs td:nth-child(3):empty{display:none}
-    table.docs td:nth-child(4)::before{content:"온라인 · ";color:var(--ink-faint);font-weight:500}
-    table.docs td:nth-child(5)::before{content:"상태 · ";color:var(--ink-faint);font-weight:500}
+    table.docs td:nth-child(3)::before{content:"상태 · ";color:var(--ink-faint);font-weight:500}
+    table.docs td:nth-child(4):not(:empty)::before{content:"비고 · ";color:var(--ink-faint);font-weight:500}
+    table.docs td:nth-child(4):empty{display:none}
     .phase.open .doc-wrap{max-height:9000px}
     .vault-row{flex-wrap:wrap}
     .pp-label{flex-basis:48px} .pp-val{min-width:64px}
@@ -198,12 +196,12 @@
 
   <div class="topbar">
     <div class="inner">
-      <span class="mode-pill" id="modePill">👀 보기 전용</span>
+      <span class="mode-pill hide" id="modePill">✏️ 편집 모드 (관리자)</span>
       <span class="tb-spacer"></span>
-      <button class="tb-btn" id="adminBtn">관리자 모드</button>
+      <button class="gear" id="adminBtn" title="설정" aria-label="설정">⚙</button>
       <button class="tb-btn go hide" id="shareBtn">🔗 공유 링크 복사</button>
       <button class="tb-btn hide" id="exitBtn">보기 모드로</button>
-      <span class="tb-hint" id="tbHint">다른 분들은 상태를 볼 수만 있고 수정은 못 합니다. 변경은 관리자만 합니다.</span>
+      <span class="tb-hint hide" id="tbHint"></span>
     </div>
   </div>
 
@@ -211,7 +209,7 @@
 
   <header>
     <div class="eyebrow">가족 공유용 · 진행 로드맵</div>
-    <h1>성수동1가 194-2<span class="sub">조부 김만용 상속 토지 · 성수전략정비구역 재개발 대응 절차</span></h1>
+    <h1>성수동1가 194-2<span class="sub">부친 김만용 상속 토지 · 성수전략정비구역 재개발 대응 절차</span></h1>
     <div class="meta">
       <span><b>대상 토지</b> 서울 성동구 성수동1가 194-2 (대 33㎡)</span>
       <span><b>현재 명의</b> 김만용 (1962년~, 상속 미이행)</span>
@@ -227,11 +225,11 @@
   <!-- 01 -->
   <section>
     <div class="sec-head"><span class="sec-num">01</span><h2>현황 한눈에</h2></div>
-    <p class="sec-desc">확인된 사실 기준 요약입니다. 땅은 한 번도 팔리거나 압류된 적 없이 조부 명의로 보존돼 있어, 핵심은 “되찾는 싸움”이 아니라 <b>상속을 정리하는 절차</b>입니다.</p>
+    <p class="sec-desc">확인된 사실 기준 요약입니다. 땅은 한 번도 팔리거나 압류된 적 없이 부친 명의로 보존돼 있어, 핵심은 “되찾는 싸움”이 아니라 <b>상속을 정리하는 절차</b>입니다.</p>
     <div class="cards">
-      <div class="card"><div class="k">토지 상태</div><div class="v">상속 미이행</div><div class="n">1962년 이후 조부 명의 그대로 · 근저당·압류 없음</div></div>
+      <div class="card"><div class="k">토지 상태</div><div class="v">상속 미이행</div><div class="n">1962년 이후 부친 명의 그대로 · 근저당·압류 없음</div></div>
       <div class="card"><div class="k">재개발</div><div class="v">성수전략정비구역</div><div class="n">1지구 시공사 GS건설 선정(2026.4) · 조합 설립 완료 단계</div></div>
-      <div class="card"><div class="k">현재 단계</div><div class="v">상속인 확정</div><div class="n">제적등본으로 상속인 전원·지분 확정 중</div></div>
+      <div class="card"><div class="k">현재 단계</div><div class="v">기초 사실 확인 중</div><div class="n">땅의 현재 상태, 권리관계, 가치, 재개발 단계를 확정</div></div>
       <div class="card"><div class="k">핵심 변수</div><div class="v">33㎡ 분양자격</div><div class="n">입주권 vs 현금청산 · 누가 상속받느냐가 영향</div></div>
     </div>
   </section>
@@ -267,95 +265,95 @@
   <!-- 03 -->
   <section>
     <div class="sec-head"><span class="sec-num">03</span><h2>단계별 절차 &amp; 필요 서류</h2></div>
-    <p class="sec-desc">각 단계 제목을 누르면 그 단계에서 필요한 서류가 펼쳐집니다. <b>비고</b>는 변호사·세무사·법무사 등 외부 도움이 필요한 항목, <b>온라인</b>은 인터넷 발급 가능 여부입니다.</p>
+    <p class="sec-desc">각 STEP 제목을 누르면 그 단계에서 필요한 서류가 펼쳐집니다. <b>비고</b>는 변호사·세무사·법무사 등 외부 도움이 필요한 항목을 표시합니다.</p>
 
     <div class="phase done open" data-phase>
       <div class="dot"></div>
-      <div class="phase-head" onclick="togglePhase(this)"><h3>0 · 기초 사실 확인</h3><span class="badge b-go">거의 완료</span><span class="chev">▶</span></div>
+      <div class="phase-head" onclick="togglePhase(this)"><h3><span class="stepn">STEP 1</span> · 기초 사실 확인</h3><span class="badge b-go">거의 완료</span><span class="chev">▶</span></div>
       <p class="phase-goal">땅의 현재 상태, 권리관계, 가치, 재개발 단계를 확정합니다.</p>
       <div class="doc-wrap"><table class="docs">
-        <thead><tr><th>서류</th><th>발급처</th><th>비고</th><th>온라인</th><th>상태</th></tr></thead>
+        <thead><tr><th>서류</th><th>발급처</th><th>상태</th><th>비고</th></tr></thead>
         <tbody>
-          <tr><td class="doc"><label class="chk"><input type="checkbox" checked disabled>등기부등본 194-2 (토지)</label></td><td class="src">인터넷등기소</td><td></td><td class="on y">가능</td><td class="st go">완료</td></tr>
-          <tr><td class="doc"><label class="chk"><input type="checkbox" checked disabled>등기부등본 194-1·177-1·건물</label></td><td class="src">인터넷등기소</td><td></td><td class="on y">가능</td><td class="st go">완료</td></tr>
-          <tr><td class="doc"><label class="chk"><input type="checkbox" checked disabled>개별공시지가 (194-2)</label></td><td class="src">부동산공시가격알리미</td><td></td><td class="on y">가능</td><td class="st go">완료</td></tr>
-          <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>토지대장 (194-2)</label></td><td class="src">정부24</td><td></td><td class="on y">가능</td><td class="st wait">예정</td></tr>
-          <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>토지이용계획확인원 (194-2)</label></td><td class="src">토지이음</td><td></td><td class="on y">가능</td><td class="st wait">예정</td></tr>
+          <tr><td class="doc"><label class="chk"><input type="checkbox" checked disabled>등기부등본 194-2 (토지)</label></td><td class="src">인터넷등기소</td><td class="st go">완료</td><td></td></tr>
+          <tr><td class="doc"><label class="chk"><input type="checkbox" checked disabled>등기부등본 194-1·177-1·건물</label></td><td class="src">인터넷등기소</td><td class="st go">완료</td><td></td></tr>
+          <tr><td class="doc"><label class="chk"><input type="checkbox" checked disabled>개별공시지가 (194-2)</label></td><td class="src">부동산공시가격알리미</td><td class="st go">완료</td><td></td></tr>
+          <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>토지대장 (194-2)</label></td><td class="src">정부24</td><td class="st wait">예정</td><td></td></tr>
+          <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>토지이용계획확인원 (194-2)</label></td><td class="src">토지이음</td><td class="st wait">예정</td><td></td></tr>
         </tbody>
       </table></div>
     </div>
 
     <div class="phase wip open" data-phase>
       <div class="dot"></div>
-      <div class="phase-head" onclick="togglePhase(this)"><h3>1 · 상속인 확정 (제적·가족관계 서류)</h3><span class="badge b-wip">진행 중</span><span class="chev">▶</span></div>
-      <p class="phase-goal">조부 김만용의 7남매와 각자의 사망 시점을 확인해, 이번 상속에 참여하실 분(상속인)을 한 분도 빠짐없이 가립니다.</p>
+      <div class="phase-head" onclick="togglePhase(this)"><h3><span class="stepn">STEP 2</span> · 상속인 확정 (제적·가족관계 서류)</h3><span class="badge b-wip">진행 중</span><span class="chev">▶</span></div>
+      <p class="phase-goal">부친 김만용의 7남매와 각자의 사망 시점을 확인해, 이번 상속에 참여하실 분(상속인)을 한 분도 빠짐없이 가립니다.</p>
       <div class="doc-wrap"><table class="docs">
-        <thead><tr><th>서류</th><th>발급처</th><th>비고</th><th>온라인</th><th>상태</th></tr></thead>
+        <thead><tr><th>서류</th><th>발급처</th><th>상태</th><th>비고</th></tr></thead>
         <tbody>
-          <tr><td class="doc"><label class="chk"><input type="checkbox" checked disabled>여섯째 제적등본</label></td><td class="src">전자가족관계등록시스템</td><td></td><td class="on y">가능</td><td class="st go">완료</td></tr>
-          <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>조부(김만용) 제적등본 ★핵심</label></td><td class="src">주민센터 / 전자가족관계</td><td><span class="pro">법무사</span></td><td class="on p">부분</td><td class="st wip">진행</td></tr>
-          <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>둘째(김◯◯) 제적등본</label></td><td class="src">주민센터 (상속 목적)</td><td><span class="pro">법무사</span></td><td class="on p">부분</td><td class="st wait">예정</td></tr>
-          <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>다섯째(김◯◯) 제적등본</label></td><td class="src">주민센터 (자녀 2명 확인)</td><td><span class="pro">법무사</span></td><td class="on p">부분</td><td class="st wait">예정</td></tr>
-          <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>넷째(김◯◯) 제적등본 (상속 제외 확인)</label></td><td class="src">주민센터</td><td><span class="pro">법무사</span></td><td class="on p">부분</td><td class="st wait">예정</td></tr>
-          <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>생존 상속인 가족관계·기본증명서</label></td><td class="src">정부24 / 전자가족관계</td><td></td><td class="on y">가능</td><td class="st wait">예정</td></tr>
+          <tr><td class="doc"><label class="chk"><input type="checkbox" checked disabled>여섯째 제적등본</label></td><td class="src">전자가족관계등록시스템</td><td class="st go">완료</td><td></td></tr>
+          <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>부친(김만용) 제적등본 ★핵심</label></td><td class="src">주민센터 / 전자가족관계</td><td class="st wip">진행</td><td><span class="pro">법무사</span></td></tr>
+          <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>둘째(김◯◯) 제적등본</label></td><td class="src">주민센터 (상속 목적)</td><td class="st wait">예정</td><td><span class="pro">법무사</span></td></tr>
+          <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>다섯째(김◯◯) 제적등본</label></td><td class="src">주민센터 (자녀 2명 확인)</td><td class="st wait">예정</td><td><span class="pro">법무사</span></td></tr>
+          <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>넷째(김◯◯) 제적등본 (상속 제외 확인)</label></td><td class="src">주민센터</td><td class="st wait">예정</td><td><span class="pro">법무사</span></td></tr>
+          <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>생존 상속인 가족관계·기본증명서</label></td><td class="src">정부24 / 전자가족관계</td><td class="st wait">예정</td><td></td></tr>
         </tbody>
       </table></div>
     </div>
 
     <div class="phase" data-phase>
       <div class="dot"></div>
-      <div class="phase-head" onclick="togglePhase(this)"><h3>2 · 분할 협의 &amp; 서류 준비</h3><span class="badge b-wait">예정</span><span class="chev">▶</span></div>
+      <div class="phase-head" onclick="togglePhase(this)"><h3><span class="stepn">STEP 3</span> · 분할 협의 &amp; 서류 준비</h3><span class="badge b-wait">예정</span><span class="chev">▶</span></div>
       <p class="phase-goal">상속인 전원이 분할 방향에 합의하고, 서명·인감 서류를 모읍니다.</p>
       <div class="doc-wrap"><table class="docs">
-        <thead><tr><th>서류</th><th>발급처</th><th>비고</th><th>온라인</th><th>상태</th></tr></thead>
+        <thead><tr><th>서류</th><th>발급처</th><th>상태</th><th>비고</th></tr></thead>
         <tbody>
-          <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>분할 방향 결정</label></td><td class="src">—</td><td><span class="pro">변호사</span></td><td class="on n">상담</td><td class="st wait">예정</td></tr>
-          <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>상속인 전원 인감증명서</label></td><td class="src">주민센터 / 정부24(일부)</td><td></td><td class="on p">부분</td><td class="st wait">예정</td></tr>
-          <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>위임장 (대리 진행 시)</label></td><td class="src">국내 인감 / 해외 영사공증</td><td></td><td class="on n">서면</td><td class="st wait">예정</td></tr>
-          <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>상속재산분할협의서 (전원 날인)</label></td><td class="src">—</td><td><span class="pro">법무사</span></td><td class="on n">서면</td><td class="st wait">예정</td></tr>
+          <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>분할 방향 결정</label></td><td class="src">—</td><td class="st wait">예정</td><td><span class="pro">변호사</span></td></tr>
+          <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>상속인 전원 인감증명서</label></td><td class="src">주민센터 / 정부24(일부)</td><td class="st wait">예정</td><td></td></tr>
+          <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>위임장 (대리 진행 시)</label></td><td class="src">국내 인감 / 해외 영사공증</td><td class="st wait">예정</td><td></td></tr>
+          <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>상속재산분할협의서 (전원 날인)</label></td><td class="src">—</td><td class="st wait">예정</td><td><span class="pro">법무사</span></td></tr>
         </tbody>
       </table></div>
     </div>
 
     <div class="phase" data-phase>
       <div class="dot"></div>
-      <div class="phase-head" onclick="togglePhase(this)"><h3>3 · 상속등기</h3><span class="badge b-wait">예정</span><span class="chev">▶</span></div>
+      <div class="phase-head" onclick="togglePhase(this)"><h3><span class="stepn">STEP 4</span> · 상속등기</h3><span class="badge b-wait">예정</span><span class="chev">▶</span></div>
       <p class="phase-goal">협의 내용대로 194-2의 소유권을 상속인 앞으로 정리합니다.</p>
       <div class="doc-wrap"><table class="docs">
-        <thead><tr><th>서류</th><th>발급처</th><th>비고</th><th>온라인</th><th>상태</th></tr></thead>
+        <thead><tr><th>서류</th><th>발급처</th><th>상태</th><th>비고</th></tr></thead>
         <tbody>
-          <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>협의서 + 전원 인감 + 제적·가족관계 일체</label></td><td class="src">1·2단계 결과물</td><td><span class="pro">법무사</span></td><td class="on n">서면</td><td class="st wait">예정</td></tr>
-          <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>취득세 납부</label></td><td class="src">위택스 / 구청</td><td></td><td class="on y">가능</td><td class="st wait">예정</td></tr>
-          <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>상속등기 신청</label></td><td class="src">서울동부지법 등기국</td><td><span class="pro">법무사</span></td><td class="on p">부분</td><td class="st wait">예정</td></tr>
+          <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>협의서 + 전원 인감 + 제적·가족관계 일체</label></td><td class="src">STEP 2·3 결과물</td><td class="st wait">예정</td><td><span class="pro">법무사</span></td></tr>
+          <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>취득세 납부</label></td><td class="src">위택스 / 구청</td><td class="st wait">예정</td><td></td></tr>
+          <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>상속등기 신청</label></td><td class="src">서울동부지법 등기국</td><td class="st wait">예정</td><td><span class="pro">법무사</span></td></tr>
         </tbody>
       </table></div>
     </div>
 
     <div class="phase" data-phase>
       <div class="dot"></div>
-      <div class="phase-head" onclick="togglePhase(this)"><h3>4 · 조합 등록 &amp; 분양자격 확정</h3><span class="badge b-wait">예정</span><span class="chev">▶</span></div>
+      <div class="phase-head" onclick="togglePhase(this)"><h3><span class="stepn">STEP 5</span> · 조합 등록 &amp; 분양자격 확정</h3><span class="badge b-wait">예정</span><span class="chev">▶</span></div>
       <p class="phase-goal">재개발 조합에 토지등소유자로 등록하고, 입주권 가능 여부를 확정합니다.</p>
       <div class="doc-wrap"><table class="docs">
-        <thead><tr><th>서류</th><th>발급처</th><th>비고</th><th>온라인</th><th>상태</th></tr></thead>
+        <thead><tr><th>서류</th><th>발급처</th><th>상태</th><th>비고</th></tr></thead>
         <tbody>
-          <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>상속등기 완료 등기부등본 제출</label></td><td class="src">조합 사무실</td><td></td><td class="on p">부분</td><td class="st wait">예정</td></tr>
-          <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>토지등소유자 등록 / 신고</label></td><td class="src">조합</td><td></td><td class="on n">방문</td><td class="st wait">예정</td></tr>
-          <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>무주택 증명 (해당 상속인)</label></td><td class="src">정부24</td><td></td><td class="on y">가능</td><td class="st wait">예정</td></tr>
-          <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>분양자격 검토 (입주권 vs 현금청산)</label></td><td class="src">—</td><td><span class="pro">변호사·감정평가사</span></td><td class="on n">상담</td><td class="st wait">예정</td></tr>
+          <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>상속등기 완료 등기부등본 제출</label></td><td class="src">조합 사무실</td><td class="st wait">예정</td><td></td></tr>
+          <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>토지등소유자 등록 / 신고</label></td><td class="src">조합</td><td class="st wait">예정</td><td></td></tr>
+          <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>무주택 증명 (해당 상속인)</label></td><td class="src">정부24</td><td class="st wait">예정</td><td></td></tr>
+          <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>분양자격 검토 (입주권 vs 현금청산)</label></td><td class="src">—</td><td class="st wait">예정</td><td><span class="pro">변호사·감정평가사</span></td></tr>
         </tbody>
       </table></div>
     </div>
 
     <div class="phase" data-phase>
       <div class="dot"></div>
-      <div class="phase-head" onclick="togglePhase(this)"><h3>5 · 출구 결정</h3><span class="badge b-wait">예정</span><span class="chev">▶</span></div>
+      <div class="phase-head" onclick="togglePhase(this)"><h3><span class="stepn">STEP 6</span> · 출구 결정</h3><span class="badge b-wait">예정</span><span class="chev">▶</span></div>
       <p class="phase-goal">입주권 보유·전매, 또는 현금청산·매도 중 가족에게 가장 유리한 길을 정합니다.</p>
       <div class="doc-wrap"><table class="docs">
-        <thead><tr><th>항목</th><th>내용</th><th>비고</th><th>온라인</th><th>상태</th></tr></thead>
+        <thead><tr><th>항목</th><th>내용</th><th>상태</th><th>비고</th></tr></thead>
         <tbody>
-          <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>입주권 분양신청 (기간 엄수)</label></td><td class="src">조합 일정</td><td></td><td class="on n">방문</td><td class="st wait">예정</td></tr>
-          <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>또는 현금청산 / 매도 결정</label></td><td class="src">—</td><td><span class="pro">변호사</span></td><td class="on n">—</td><td class="st wait">예정</td></tr>
-          <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>양도세 설계</label></td><td class="src">환산취득가액 검토</td><td><span class="pro">세무사</span></td><td class="on n">상담</td><td class="st wait">예정</td></tr>
+          <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>입주권 분양신청 (기간 엄수)</label></td><td class="src">조합 일정</td><td class="st wait">예정</td><td></td></tr>
+          <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>또는 현금청산 / 매도 결정</label></td><td class="src">—</td><td class="st wait">예정</td><td><span class="pro">변호사</span></td></tr>
+          <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>양도세 설계</label></td><td class="src">환산취득가액 검토</td><td class="st wait">예정</td><td><span class="pro">세무사</span></td></tr>
         </tbody>
       </table></div>
     </div>
@@ -364,14 +362,14 @@
   <!-- 04 -->
   <section>
     <div class="sec-head"><span class="sec-num">04</span><h2>상속인별 준비 안내</h2></div>
-    <p class="sec-desc">협의가 정해지면, 서명하실 모든 분이 <b>① 인감증명서 1통(발급 3개월 이내) · ② 본인 가족관계증명서·기본증명서 · ③ 협의서 인감 날인</b>을 준비하시면 됩니다.</p>
+    <p class="sec-desc"><b>부친 김만용의 자녀분들이 상속인</b>입니다. 협의가 정해지면, 서명하실 모든 분이 <b>① 인감증명서 1통(발급 3개월 이내) · ② 본인 가족관계증명서·기본증명서 · ③ 협의서 인감 날인</b>을 준비하시면 됩니다.</p>
     <div class="heirs">
-      <div class="heir"><div class="rel">첫째 · 생존</div><div class="nm">김◯◯</div><ul><li>본인이 당사자</li><li>공통 서류 ①②③ · 국내 거주</li></ul></div>
-      <div class="heir"><div class="rel">둘째 · 작고</div><div class="nm">김◯◯</div><ul><li>배우자 · 자녀 1명이 당사자</li><li>개별 협의 진행 중</li></ul></div>
-      <div class="heir"><div class="rel">셋째 · 고모</div><div class="nm">김◯◯</div><ul><li>본인이 당사자</li><li>공통 서류 ①②③ · 국내 거주</li></ul></div>
-      <div class="heir special"><div class="rel">다섯째 · 작고</div><div class="nm">김◯◯</div><ul><li>자녀1(장녀, 프랑스 거주) · 자녀2(차녀)가 당사자</li><li><b>장녀(프랑스 거주): 가장 먼저 착수</b> — 영사관 위임장·서명 공증, 필요 시 아포스티유</li></ul></div>
-      <div class="heir"><div class="rel">여섯째</div><div class="nm">김◯◯</div><ul><li>본인이 당사자</li><li>건강 고려 — 의사 분명하실 때 직접 서명 또는 위임장 미리 확보</li></ul></div>
-      <div class="heir"><div class="rel">일곱째 · 고모</div><div class="nm">김◯◯</div><ul><li>본인이 당사자</li><li>공통 서류 ①②③ · 국내 거주</li></ul></div>
+      <div class="heir"><div class="rel">생존</div><div class="nm">첫째 (김◯◯)</div><ul><li>본인이 당사자</li><li>공통 서류 ①②③ · 국내 거주</li></ul></div>
+      <div class="heir"><div class="rel">작고</div><div class="nm">둘째 (김◯◯)</div><ul><li>배우자 · 자녀 1명이 당사자</li><li>개별 협의 진행 중</li></ul></div>
+      <div class="heir"><div class="rel">고모 · 생존</div><div class="nm">셋째 (김◯◯)</div><ul><li>본인이 당사자</li><li>공통 서류 ①②③ · 국내 거주</li></ul></div>
+      <div class="heir special"><div class="rel">작고</div><div class="nm">다섯째 (김◯◯)</div><ul><li>자녀1(장녀, 프랑스 거주) · 자녀2(차녀)가 당사자</li><li><b>장녀(프랑스 거주): 가장 먼저 착수</b> — 영사관 위임장·서명 공증, 필요 시 아포스티유</li></ul></div>
+      <div class="heir"><div class="rel">생존</div><div class="nm">여섯째 (김◯◯)</div><ul><li>본인이 당사자</li><li>건강 고려 — 의사 분명하실 때 직접 서명 또는 위임장 미리 확보</li></ul></div>
+      <div class="heir"><div class="rel">고모 · 생존</div><div class="nm">일곱째 (김◯◯)</div><ul><li>본인이 당사자</li><li>공통 서류 ①②③ · 국내 거주</li></ul></div>
     </div>
     <div class="note"><b>해외 거주자·둘째(김◯◯) 쪽 먼저.</b> 가장 오래 걸리는 두 경우입니다. 프랑스에 계신 장녀는 영사관 공증에 시간이 걸리니 지금부터 연락·안내를 시작하고, 둘째(김◯◯) 쪽은 협의 결과에 따라 일정이 달라지므로 별도로 진행하세요.</div>
   </section>
@@ -381,11 +379,11 @@
     <div class="sec-head"><span class="sec-num">05</span><h2>서류 보관함 (다운로드)</h2></div>
     <p class="sec-desc">관리자가 받은 서류를 올려두면 가족이 여기서 내려받을 수 있습니다. 아직 연결되지 않은 항목은 <b>“준비 중”</b>으로 표시됩니다.</p>
     <div class="vault" id="vault">
-      <div class="vault-row"><span class="vault-name">조부(김만용) 제적등본</span><a class="dl" href="#">다운로드</a></div>
+      <div class="vault-row"><span class="vault-name">부친(김만용) 제적등본</span><a class="dl" href="#">다운로드</a></div>
       <div class="vault-row"><span class="vault-name">여섯째 제적등본</span><a class="dl" href="#">다운로드</a></div>
-      <div class="vault-row"><span class="vault-name">둘째 어른 제적등본</span><a class="dl" href="#">다운로드</a></div>
-      <div class="vault-row"><span class="vault-name">다섯째 어른 제적등본</span><a class="dl" href="#">다운로드</a></div>
-      <div class="vault-row"><span class="vault-name">넷째 어른 제적등본</span><a class="dl" href="#">다운로드</a></div>
+      <div class="vault-row"><span class="vault-name">둘째(김◯◯) 제적등본</span><a class="dl" href="#">다운로드</a></div>
+      <div class="vault-row"><span class="vault-name">다섯째(김◯◯) 제적등본</span><a class="dl" href="#">다운로드</a></div>
+      <div class="vault-row"><span class="vault-name">넷째(김◯◯) 제적등본</span><a class="dl" href="#">다운로드</a></div>
       <div class="vault-row"><span class="vault-name">토지·건물 등기부등본 모음</span><a class="dl" href="#">다운로드</a></div>
       <div class="vault-row"><span class="vault-name">토지대장 / 토지이용계획확인원</span><a class="dl" href="#">다운로드</a></div>
       <div class="vault-row"><span class="vault-name">상속재산분할협의서</span><a class="dl" href="#">다운로드</a></div>
@@ -450,7 +448,6 @@
   }
   function showToast(msg){ toast.textContent = msg; toast.classList.add('show'); setTimeout(function(){ toast.classList.remove('show'); }, 2300); }
 
-  /* download links: show 준비 중 when not connected */
   function refreshDownloads(){
     dls.forEach(function(a){
       var href = a.getAttribute('href');
@@ -458,9 +455,7 @@
       a.classList.toggle('pending', !connected);
       a.textContent = connected ? '다운로드' : '준비 중';
       if(connected){ a.setAttribute('target','_blank'); a.setAttribute('rel','noopener'); }
-      /* edit-mode connect button */
-      var row = a.parentElement;
-      var btn = row.querySelector('.linkbtn');
+      var row = a.parentElement, btn = row.querySelector('.linkbtn');
       if(isEdit && !btn){
         btn = document.createElement('button');
         btn.className = 'linkbtn'; btn.textContent = '링크 연결';
@@ -484,13 +479,14 @@
     isEdit = edit;
     boxes.forEach(function(b){ b.disabled = !edit; });
     if(edit){
-      modePill.textContent='✏️ 편집 모드 (관리자)'; modePill.classList.add('edit');
-      adminBtn.classList.add('hide'); shareBtn.classList.remove('hide'); exitBtn.classList.remove('hide');
+      modePill.classList.remove('hide'); adminBtn.classList.add('hide');
+      shareBtn.classList.remove('hide'); exitBtn.classList.remove('hide');
+      tbHint.classList.remove('hide');
       tbHint.textContent='체크·링크를 수정한 뒤 “공유 링크 복사”로 가족에게 보내세요. 받는 분은 보기 전용으로 열립니다.';
     } else {
-      modePill.textContent='👀 보기 전용'; modePill.classList.remove('edit');
-      adminBtn.classList.remove('hide'); shareBtn.classList.add('hide'); exitBtn.classList.add('hide');
-      tbHint.textContent='다른 분들은 상태를 볼 수만 있고 수정은 못 합니다. 변경은 관리자만 합니다.';
+      modePill.classList.add('hide'); adminBtn.classList.remove('hide');
+      shareBtn.classList.add('hide'); exitBtn.classList.add('hide');
+      tbHint.classList.add('hide'); tbHint.textContent='';
     }
     refreshDownloads();
   }
