@@ -177,7 +177,7 @@
     table.docs td:nth-child(2),table.docs td:nth-child(3),table.docs td:nth-child(4){display:inline-block;margin:0 14px 5px 0;font-size:13.5px;font-weight:600;line-height:1.4}
     table.docs td:nth-child(2)::before{content:"발급 · ";color:var(--ink-faint);font-weight:500}
     table.docs td:nth-child(3)::before{content:"상태 · ";color:var(--ink-faint);font-weight:500}
-    table.docs td:nth-child(4):not(:empty)::before{content:"비고 · ";color:var(--ink-faint);font-weight:500}
+    table.docs td:nth-child(4):not(:empty)::before{content:"전문가도움 · ";color:var(--ink-faint);font-weight:500}
     table.docs td:nth-child(4):empty{display:none}
     .phase.open .doc-wrap{max-height:9000px}
     .vault-row{flex-wrap:wrap}
@@ -265,14 +265,14 @@
   <!-- 03 -->
   <section>
     <div class="sec-head"><span class="sec-num">03</span><h2>단계별 절차 &amp; 필요 서류</h2></div>
-    <p class="sec-desc">각 STEP 제목을 누르면 그 단계에서 필요한 서류가 펼쳐집니다. <b>비고</b>는 변호사·세무사·법무사 등 외부 도움이 필요한 항목을 표시합니다.</p>
+    <p class="sec-desc">각 STEP 제목을 누르면 그 단계에서 필요한 서류가 펼쳐집니다. <b>전문가도움</b>은 변호사·세무사·법무사 등 외부 도움이 필요한 항목을 표시합니다.</p>
 
     <div class="phase done open" data-phase>
       <div class="dot"></div>
       <div class="phase-head" onclick="togglePhase(this)"><h3><span class="stepn">STEP 1</span> · 기초 사실 확인</h3><span class="badge b-go">거의 완료</span><span class="chev">▶</span></div>
       <p class="phase-goal">땅의 현재 상태, 권리관계, 가치, 재개발 단계를 확정합니다.</p>
       <div class="doc-wrap"><table class="docs">
-        <thead><tr><th>서류</th><th>발급처</th><th>상태</th><th>비고</th></tr></thead>
+        <thead><tr><th>서류</th><th>발급처</th><th>상태</th><th>전문가도움</th></tr></thead>
         <tbody>
           <tr><td class="doc"><label class="chk"><input type="checkbox" checked disabled>등기부등본 194-2 (토지)</label></td><td class="src">인터넷등기소</td><td class="st go">완료</td><td></td></tr>
           <tr><td class="doc"><label class="chk"><input type="checkbox" checked disabled>등기부등본 194-1·177-1·건물</label></td><td class="src">인터넷등기소</td><td class="st go">완료</td><td></td></tr>
@@ -288,13 +288,13 @@
       <div class="phase-head" onclick="togglePhase(this)"><h3><span class="stepn">STEP 2</span> · 상속인 확정 (제적·가족관계 서류)</h3><span class="badge b-wip">진행 중</span><span class="chev">▶</span></div>
       <p class="phase-goal">부친 김만용의 7남매와 각자의 사망 시점을 확인해, 이번 상속에 참여하실 분(상속인)을 한 분도 빠짐없이 가립니다.</p>
       <div class="doc-wrap"><table class="docs">
-        <thead><tr><th>서류</th><th>발급처</th><th>상태</th><th>비고</th></tr></thead>
+        <thead><tr><th>서류</th><th>발급처</th><th>상태</th><th>전문가도움</th></tr></thead>
         <tbody>
-          <tr><td class="doc"><label class="chk"><input type="checkbox" checked disabled>여섯째 제적등본</label></td><td class="src">전자가족관계등록시스템</td><td class="st go">완료</td><td></td></tr>
           <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>부친(김만용) 제적등본 ★핵심</label></td><td class="src">주민센터 / 전자가족관계</td><td class="st wip">진행</td><td><span class="pro">법무사</span></td></tr>
           <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>둘째(김◯◯) 제적등본</label></td><td class="src">주민센터 (상속 목적)</td><td class="st wait">예정</td><td><span class="pro">법무사</span></td></tr>
-          <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>다섯째(김◯◯) 제적등본</label></td><td class="src">주민센터 (자녀 2명 확인)</td><td class="st wait">예정</td><td><span class="pro">법무사</span></td></tr>
           <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>넷째(김◯◯) 제적등본 (상속 제외 확인)</label></td><td class="src">주민센터</td><td class="st wait">예정</td><td><span class="pro">법무사</span></td></tr>
+          <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>다섯째(김◯◯) 제적등본</label></td><td class="src">주민센터 (자녀 2명 확인)</td><td class="st wait">예정</td><td><span class="pro">법무사</span></td></tr>
+          <tr><td class="doc"><label class="chk"><input type="checkbox" checked disabled>여섯째 제적등본</label></td><td class="src">전자가족관계등록시스템</td><td class="st go">완료</td><td></td></tr>
           <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>생존 상속인 가족관계·기본증명서</label></td><td class="src">정부24 / 전자가족관계</td><td class="st wait">예정</td><td></td></tr>
         </tbody>
       </table></div>
@@ -305,7 +305,7 @@
       <div class="phase-head" onclick="togglePhase(this)"><h3><span class="stepn">STEP 3</span> · 분할 협의 &amp; 서류 준비</h3><span class="badge b-wait">예정</span><span class="chev">▶</span></div>
       <p class="phase-goal">상속인 전원이 분할 방향에 합의하고, 서명·인감 서류를 모읍니다.</p>
       <div class="doc-wrap"><table class="docs">
-        <thead><tr><th>서류</th><th>발급처</th><th>상태</th><th>비고</th></tr></thead>
+        <thead><tr><th>서류</th><th>발급처</th><th>상태</th><th>전문가도움</th></tr></thead>
         <tbody>
           <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>분할 방향 결정</label></td><td class="src">—</td><td class="st wait">예정</td><td><span class="pro">변호사</span></td></tr>
           <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>상속인 전원 인감증명서</label></td><td class="src">주민센터 / 정부24(일부)</td><td class="st wait">예정</td><td></td></tr>
@@ -320,7 +320,7 @@
       <div class="phase-head" onclick="togglePhase(this)"><h3><span class="stepn">STEP 4</span> · 상속등기</h3><span class="badge b-wait">예정</span><span class="chev">▶</span></div>
       <p class="phase-goal">협의 내용대로 194-2의 소유권을 상속인 앞으로 정리합니다.</p>
       <div class="doc-wrap"><table class="docs">
-        <thead><tr><th>서류</th><th>발급처</th><th>상태</th><th>비고</th></tr></thead>
+        <thead><tr><th>서류</th><th>발급처</th><th>상태</th><th>전문가도움</th></tr></thead>
         <tbody>
           <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>협의서 + 전원 인감 + 제적·가족관계 일체</label></td><td class="src">STEP 2·3 결과물</td><td class="st wait">예정</td><td><span class="pro">법무사</span></td></tr>
           <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>취득세 납부</label></td><td class="src">위택스 / 구청</td><td class="st wait">예정</td><td></td></tr>
@@ -334,7 +334,7 @@
       <div class="phase-head" onclick="togglePhase(this)"><h3><span class="stepn">STEP 5</span> · 조합 등록 &amp; 분양자격 확정</h3><span class="badge b-wait">예정</span><span class="chev">▶</span></div>
       <p class="phase-goal">재개발 조합에 토지등소유자로 등록하고, 입주권 가능 여부를 확정합니다.</p>
       <div class="doc-wrap"><table class="docs">
-        <thead><tr><th>서류</th><th>발급처</th><th>상태</th><th>비고</th></tr></thead>
+        <thead><tr><th>서류</th><th>발급처</th><th>상태</th><th>전문가도움</th></tr></thead>
         <tbody>
           <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>상속등기 완료 등기부등본 제출</label></td><td class="src">조합 사무실</td><td class="st wait">예정</td><td></td></tr>
           <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>토지등소유자 등록 / 신고</label></td><td class="src">조합</td><td class="st wait">예정</td><td></td></tr>
@@ -349,7 +349,7 @@
       <div class="phase-head" onclick="togglePhase(this)"><h3><span class="stepn">STEP 6</span> · 출구 결정</h3><span class="badge b-wait">예정</span><span class="chev">▶</span></div>
       <p class="phase-goal">입주권 보유·전매, 또는 현금청산·매도 중 가족에게 가장 유리한 길을 정합니다.</p>
       <div class="doc-wrap"><table class="docs">
-        <thead><tr><th>항목</th><th>내용</th><th>상태</th><th>비고</th></tr></thead>
+        <thead><tr><th>항목</th><th>내용</th><th>상태</th><th>전문가도움</th></tr></thead>
         <tbody>
           <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>입주권 분양신청 (기간 엄수)</label></td><td class="src">조합 일정</td><td class="st wait">예정</td><td></td></tr>
           <tr><td class="doc"><label class="chk"><input type="checkbox" disabled>또는 현금청산 / 매도 결정</label></td><td class="src">—</td><td class="st wait">예정</td><td><span class="pro">변호사</span></td></tr>
@@ -380,10 +380,10 @@
     <p class="sec-desc">관리자가 받은 서류를 올려두면 가족이 여기서 내려받을 수 있습니다. 아직 연결되지 않은 항목은 <b>“준비 중”</b>으로 표시됩니다.</p>
     <div class="vault" id="vault">
       <div class="vault-row"><span class="vault-name">부친(김만용) 제적등본</span><a class="dl" href="#">다운로드</a></div>
-      <div class="vault-row"><span class="vault-name">여섯째 제적등본</span><a class="dl" href="#">다운로드</a></div>
       <div class="vault-row"><span class="vault-name">둘째(김◯◯) 제적등본</span><a class="dl" href="#">다운로드</a></div>
-      <div class="vault-row"><span class="vault-name">다섯째(김◯◯) 제적등본</span><a class="dl" href="#">다운로드</a></div>
       <div class="vault-row"><span class="vault-name">넷째(김◯◯) 제적등본</span><a class="dl" href="#">다운로드</a></div>
+      <div class="vault-row"><span class="vault-name">다섯째(김◯◯) 제적등본</span><a class="dl" href="#">다운로드</a></div>
+      <div class="vault-row"><span class="vault-name">여섯째 제적등본</span><a class="dl" href="#">다운로드</a></div>
       <div class="vault-row"><span class="vault-name">토지·건물 등기부등본 모음</span><a class="dl" href="#">다운로드</a></div>
       <div class="vault-row"><span class="vault-name">토지대장 / 토지이용계획확인원</span><a class="dl" href="#">다운로드</a></div>
       <div class="vault-row"><span class="vault-name">상속재산분할협의서</span><a class="dl" href="#">다운로드</a></div>
